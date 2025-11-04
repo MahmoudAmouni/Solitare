@@ -1,0 +1,243 @@
+/* ===== TABLE STYLING ===== */
+
+.tableMainContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+.scoreTable {
+  width: 100%;
+  max-width: 40rem;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent for depth */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  backdrop-filter: blur(10px); /* Glass effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreHeader .scoreRow {
+  background: linear-gradient(135deg, #2c3e50, #1a252c);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.scoreHeader .scoreRow td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.scoreTable tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.scoreTable tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.scoreTable tbody td {
+  padding: 1rem 1.25rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.scoreTable tbody tr:nth-child(even) {
+  background-color: rgba(240, 240, 240, 0.6);
+}
+
+.scoreTable tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Medal row styling */
+tr.first {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #5d4037;
+  box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+tr.second {
+  background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+  color: #3e3e3e;
+}
+
+tr.third {
+  background: linear-gradient(135deg, #CD7F32, #B8860B);
+  color: white;
+}
+
+/* Trash button styling */
+.trashButton {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.trashButton:hover {
+  transform: scale(1.2);
+  color: #b71c1c;
+}
+
+/* ===== FORM STYLING ===== */
+.formContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.insideForm {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.formTitle {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.scoreForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scoreForm label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: white;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #2c3e50, #1a252c);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submitButton button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+/* ===== BUTTONS & LAYOUT ===== */
+.tableButtons {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.tableButtons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tableButtons button:first-child {
+  background: linear-gradient(135deg, #2c3e50, #1a252c);
+  color: white;
+}
+
+.tableButtons button:first-child a {
+    display: block;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+}
+
+.tableButtons button:last-child {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  color: white;
+}
+
+.tableButtons button:last-child:hover {
+  background: linear-gradient(135deg, #388E3C, #2E7D32);
+}
+
+
+
+/* ===== NO SCORES MESSAGE ===== */
+#noScoresMessage h1 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#noScoresMessage p button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/LeaderBoard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="hero">
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="logo page" />
+            <h2>Solitare </h2>
+        </div>
+        <div class="links">
+            <p>Leaderboard</p>
+            <p>Add Score </p>
+        </div>
+    </nav>
+    <div class="tableMainContent" id="tableMainContent">
+
+        <table id="scoreTable" class="scoreTable">
+            <thead class="scoreHeader">
+                <tr class="scoreRow">
+                <td></td>
+                <td>userName</td>
+                <td>Score</td>
+                <td>Duration</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+           
+        </tbody>
+    </table>
+    <div id="noScoresMessage" style="display: none; text-align: center; margin-top: 20px; color: #666;">
+        <h1>No scores yet! 🎮 Be the first</h1>
+        <p><button class="addScore">Add Score</button></p>
+    </div>
+    <div class="tableButtons" id="tableButtons">
+        <button>
+            <a href="index.html" class="goBack">
+                Go back
+            </a>
+        </button>
+        <button class="addScore">
+            Add Score
+        </button>
+    </div>
+</div>
+
+<div class="formContainer" id="formContainer">
+    <div class="insideForm">
+        
+        <h2 class="formTitle">Enter Your Score</h2>
+        <form class="scoreForm">
+            <div>
+                <label>Name</label>
+                <input type="text" name="userName" class="input" required placeholder="Enter  your Name"/>
+            </div>
+            <div class="submitButton">
+
+                <button class="" type="submit"> Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div> 
+
+</body>
+</html>
