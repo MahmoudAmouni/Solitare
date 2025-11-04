@@ -196,30 +196,34 @@ tr.third {
   transition: all 0.2s;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.tableButtons button:first-child {
-  background: linear-gradient(135deg, #2c3e50, #1a252c);
+   background: linear-gradient(135deg, #4CAF50, #388E3C);
   color: white;
 }
 
-.tableButtons button:first-child a {
-    display: block;
-  color: inherit;
-  text-decoration: none;
-  width: 100%;
-}
-
-.tableButtons button:last-child {
-  background: linear-gradient(135deg, #4CAF50, #388E3C);
-  color: white;
-}
-
-.tableButtons button:last-child:hover {
+.tableButtons button:hover {
   background: linear-gradient(135deg, #388E3C, #2E7D32);
 }
 
+.goBack {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #2c3e50, #1a252c);
+  color: white;
+  text-decoration: none; /* removes underline */
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
 
+.goBack:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
 
 /* ===== NO SCORES MESSAGE ===== */
 #noScoresMessage h1 {
