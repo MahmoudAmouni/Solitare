@@ -62,6 +62,7 @@ html{
     align-items: center;
     justify-content: center;
     height: 85%;
+    width: 100%;
 }
 
 .card {
@@ -76,7 +77,8 @@ html{
     justify-content: center;
     gap: 1rem;
     width: 100%;
-    max-width: 500px;
+    height: 100%;
+    max-width: 700px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
@@ -164,7 +166,7 @@ html{
 .description {
     width: 100%;
     max-width: 60ch;
-    font-size: 12px;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
     line-height: 1.5;
@@ -185,7 +187,7 @@ html{
 .leaderbooardLink a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: underline;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     transition: color 0.2s;
 
    
@@ -380,4 +382,11 @@ footer {
     /* background: #333; */
     color: white;
     margin-top: auto;
+}
+
+
+@media (max-width: 620px) {
+  .card{
+    width: 80%;
+  }
 }
