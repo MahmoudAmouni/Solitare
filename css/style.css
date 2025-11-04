@@ -5,7 +5,10 @@
 html{
     height: 100%;
 }
+body{
+      background: linear-gradient(to bottom, #cfd6dc, #eef2f5);
 
+}
 
 .hero{
  background: 
@@ -36,7 +39,9 @@ html{
     align-items: center;
 }
 .logo h2{
-    color: #d0cbcb;
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+
 }
 .logo img{
     width: 2rem;
@@ -52,8 +57,12 @@ html{
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    color: #d0cbcb;
-    margin-left: 2.5rem;
+    color: #ffffff;
+}
+.header h1{
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    font-size: 2.4rem;
+    text-align: center;
 }
 .mainContent{ 
     display: flex;
@@ -95,14 +104,15 @@ html{
 }
 .insideCard {
     background: rgba(255, 255, 255, 0.15);
-    padding: 1.2rem;
+    padding: 2rem;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.3rem;
     width: 90%;
-    max-width: 350px;
+    height: 100%;
+    max-width: 400px;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -110,12 +120,14 @@ html{
 }
 
 .title h3 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: #fff;
     margin: 0;
     font-weight: 600;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+
 }
 
 .gameLinks {
@@ -153,7 +165,6 @@ html{
     transform: translateY(0);
 }
 
-/* App Store Button — Blue Accent */
 .gameButton:nth-child(2) {
     background: rgba(7, 103, 212, 0.9);
     color: white;
@@ -167,10 +178,9 @@ html{
     width: 100%;
     max-width: 60ch;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgb(239, 235, 235);
     text-align: center;
     line-height: 1.5;
-    margin-top: 0.5rem;
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
 }
@@ -186,9 +196,11 @@ html{
 
 .leaderbooardLink a {
     color: rgba(255, 255, 255, 0.8);
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 1.4rem;
     transition: color 0.2s;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    font-weight: bold;
 
    
 }
@@ -204,7 +216,6 @@ html{
 
 .why {
   padding: 3rem 1.5rem;
-  background: linear-gradient(to bottom, #e0e5e9, #eef2f5);
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   color: #2c3e50;
   display: flex;
@@ -255,13 +266,12 @@ html{
   border-radius: 10px;
   transition: 0.3s;
   position: relative;
-  perspective: 1000px; /* Enables 3D flip */
+  perspective: 1000px; 
   height: 100%;
 }
 
 
 
-/* Flip container — only adds 3D flip logic */
 .feature .flip-card-inner {
   position: relative;
   width: 100%;
@@ -271,13 +281,13 @@ html{
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .feature:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Front & Back — styled exactly like your .feature content */
 .feature .flip-card-front,
 .feature .flip-card-back {
   position: absolute;
@@ -291,23 +301,21 @@ html{
   align-items: center;
   padding: 1.5rem;
   box-sizing: border-box;
-  background-color: #f8f9fa; /* Match your feature bg */
+  background-color: #f8f9fa; 
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.193); /* Same as feature */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.24) ;
+
 }
 
-/* Ensure front is visible by default */
 .feature .flip-card-front {
   z-index: 2;
 }
 
-/* Back face — same styling, just flipped */
 .feature .flip-card-back {
   transform: rotateY(180deg);
   z-index: 1;
 }
 
-/* Image styling (unchanged) */
 .feature img {
   width: 100%;
   max-width: 300px;
@@ -316,7 +324,6 @@ html{
   border-radius: 6px;
 }
 
-/* Paragraph styling (unchanged) */
 .feature p {
   width: 80%;
   text-align: center;
@@ -348,7 +355,6 @@ html{
 
 .contactCard {
   border-radius: 16px;
- 
   max-width: 500px;
   margin: 2rem auto;
   text-align: center;
@@ -388,5 +394,8 @@ footer {
 @media (max-width: 620px) {
   .card{
     width: 80%;
+  }
+  .header h1{
+    font-size: 2rem;
   }
 }

@@ -6,6 +6,7 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 4rem;
+    width: 100%;
 }
 .scoreTable {
   width: 100%;
@@ -61,7 +62,6 @@
   border-bottom: none;
 }
 
-/* Medal row styling */
 tr.first {
   background: linear-gradient(135deg, #FFD700, #FFA500);
   color: #5d4037;
@@ -78,7 +78,6 @@ tr.third {
   color: white;
 }
 
-/* Trash button styling */
 .trashButton {
   background: none;
   border: none;
@@ -93,7 +92,6 @@ tr.third {
   color: #b71c1c;
 }
 
-/* ===== FORM STYLING ===== */
 .formContainer {
   display: none;
   position: fixed;
@@ -178,13 +176,12 @@ tr.third {
   box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
 }
 
-/* ===== BUTTONS & LAYOUT ===== */
 .tableButtons {
   display: flex;
   justify-content: space-around;
-  width: 70%;
-  padding: 1rem;
-  margin-top: 1rem;
+  width: 100%;
+  max-width: 63rem;
+  margin-top: 0.3rem;
 }
 
 .tableButtons button {
@@ -244,4 +241,11 @@ tr.third {
 }
 
 
-
+@media (max-width: 620px) {
+  .scoreTable{
+    width: 85%;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
