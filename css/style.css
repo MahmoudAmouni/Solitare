@@ -225,6 +225,7 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 80vh;
 }
 
 .whyTitle h2 {
@@ -242,35 +243,31 @@ body{
   display: block;
   width: 60px;
   height: 4px;
-  background: linear-gradient(135deg, #2c3e50, #1a252c);
   margin: 0.75rem auto 0;
   border-radius: 2px;
 }
 
 .features{
-    /* background-color: #333; */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     width: 90%;
     height: 100%;
-    
 }
-/* Your original .feature styling */
+
 .feature {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 1.5rem;
-  margin: 1rem auto;
-  width: 90%;
+  flex-direction: row;
   border-radius: 10px;
   transition: 0.3s;
   position: relative;
   perspective: 1000px; 
-  height: 100%;
+  width: 100%;
+  height:100%;
+  flex-direction: column;
 }
 
 
@@ -278,12 +275,13 @@ body{
 .feature .flip-card-inner {
   position: relative;
   width: 100%;
-  height: 23rem;
+  height: 80%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   align-items: center;
+  
  
 }
 
@@ -291,18 +289,19 @@ body{
   transform: rotateY(180deg);
 }
 
+
 .feature .flip-card-front,
 .feature .flip-card-back {
   position: absolute;
   width: 100%;
-  height: 23rem;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   box-sizing: border-box;
   background-color: #f8f9fa; 
   border-radius: 10px;
@@ -319,13 +318,17 @@ body{
   z-index: 1;
 }
 
-.feature img {
+.solitareimage  {
   width: 100%;
   max-width: 300px;
   height: auto;
   margin-bottom: 1rem;
   border-radius: 6px;
 }
+.cardimage{
+  width: 80%;
+}
+
 
 .feature p {
   width: 80%;
@@ -350,6 +353,7 @@ body{
    background: linear-gradient(135deg, #4CAF50, #388E3C);
   color: white;
   text-decoration: none;
+  margin-top: 1rem;
 }
 
 .checkTop:hover {
@@ -400,5 +404,50 @@ footer {
   }
   .header h1{
     font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .feature {
+    flex-basis: calc(50% - 0.5rem); /* 2 cards per row, minus half gap */
+    max-width: none;
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+
+@media (max-width: 1030px) {
+  
+  .features{
+    flex-wrap: wrap;
+    height: 70%;
+  }
+  .feature {
+    /* Force exactly 2 per row */
+    flex-basis: calc(25% - 0.5rem); /* 50% minus half of gap (1rem) */
+    width: 100%;
+    min-width: 220px;              /* Optional: prevent cards from getting too small */
+  }
+  .cardimage{
+    width: 60%;
+  }
+  .solitareimage  {
+  width: 85%;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+.feature p{
+  width: 90%;
+  font-size: 12px;
+}
+
+}
+/* Optional: Adjust for very small screens */
+@media (max-width: 480px) {
+  .feature {
+    flex-basis: 100%;
+    margin: 0.5rem 0;
   }
 }
