@@ -7,6 +7,7 @@
     flex-direction: column;
     margin-top: 4rem;
     width: 100%;
+    gap: 0.7rem;
 }
 .scoreTable {
   width: 100%;
@@ -69,7 +70,7 @@ tr.first {
 }
 
 tr.second {
-  background: linear-gradient(135deg, #C0C0C0, #A9A9A9);
+  background: linear-gradient(200deg, #d3cfcf, #cec1c1);
   color: #3e3e3e;
 }
 
@@ -112,17 +113,18 @@ tr.third {
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
-.formTitle {
+.formTitle {      
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
   text-align: center;
   color: #2c3e50;
   margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
 
@@ -130,21 +132,18 @@ tr.third {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.scoreForm label {
-  font-weight: 600;
-  color: #2c3e50;
-  font-size: 0.9rem;
+  align-items:center;
+  justify-content: center;
 }
 
 .input {
-  padding: 0.75rem;
+  padding: 0.8rem;
   border: 2px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s;
   background: white;
+  width: 100%;
 }
 
 .input:focus {
@@ -153,10 +152,7 @@ tr.third {
   box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
 }
 
-.submitButton {
-  display: flex;
-  justify-content: center;
-}
+
 
 .submitButton button {
   padding: 0.75rem 1.5rem;
@@ -195,6 +191,8 @@ tr.third {
   letter-spacing: 1px;
    background: linear-gradient(135deg, #4CAF50, #388E3C);
   color: white;
+        font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+
 }
 
 .tableButtons button:hover {
@@ -206,7 +204,7 @@ tr.third {
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #2c3e50, #1a252c);
   color: white;
-  text-decoration: none; /* removes underline */
+  text-decoration: none; 
   border: none;
   border-radius: 8px;
   font-weight: bold;
@@ -215,14 +213,14 @@ tr.third {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+
 }
 
 .goBack:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #243545, #151d23);
 }
 
-/* ===== NO SCORES MESSAGE ===== */
 #noScoresMessage h1 {
   color: #2c3e50;
   font-size: 1.5rem;

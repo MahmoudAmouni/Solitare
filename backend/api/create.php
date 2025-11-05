@@ -12,21 +12,37 @@ if (!isset($input['userName']) || !isset($input['score']) || !isset($input['dura
     exit;
 }
 
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=Solitare_db", 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include ('connection.php');
 
-    $stmt = $pdo->prepare("INSERT INTO scores (userName, score, duration) VALUES (?, ?, ?)");
-    $stmt->execute([$input['userName'], (int)$input['score'], (int)$input['duration']]);
+try {
+    $sql = $mysql->prepare("INSERT INTO scores (userName, score, duration) VALUES (?, ?, ?)");
+    
+    if (!$sql) {
+        throw new Exception('Prepare failed: ' . $mysql->error);
+    }
+
+    $userName = $input['userName'];
+    $score = (int)$input['score'];
+    $duration = (int)$input['duration'];
+
+    $sql->bind_param('sii', $userName, $score, $duration);
+
+    if (!$sql->execute()) {
+        throw new Exception('Execute failed: ' . $sql->error);
+    }
 
     echo json_encode([
-        'id' => $pdo->lastInsertId(),
-        'userName' => $input['userName'],
-        'score' => (int)$input['score'],
-        'duration' => (int)$input['duration']
+        'id' => $sql->insert_id,
+        'userName' => $userName,
+        'score' => $score,
+        'duration' => $duration
     ]);
+
+    $sql->close();
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+} finally {
+    $mysql->close();
 }
 ?>

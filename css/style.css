@@ -33,18 +33,21 @@ body{
     position: sticky;
     top: 0;
     z-index: 1000;
+    
 }
 .logo{
     display: flex;
     align-items: center;
+    gap: 0.4rem;
 }
 .logo h2{
     color: #ffffff;
+    font-size: 2rem;
     font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
 
 }
 .logo img{
-    width: 2rem;
+    width: 2.3rem;
     border-radius: 6px;
 }
 .links{
