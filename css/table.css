@@ -1,4 +1,3 @@
-/* ===== TABLE STYLING ===== */
 
 .tableMainContent{
     display: flex;
@@ -13,12 +12,12 @@
   width: 100%;
   max-width: 40rem;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent for depth */
+  background: rgba(255, 255, 255, 0.9); 
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  backdrop-filter: blur(10px); /* Glass effect */
+  backdrop-filter: blur(10px); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,84 +92,6 @@ tr.third {
   color: #b71c1c;
 }
 
-.formContainer {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  backdrop-filter: blur(5px);
-}
-
-.insideForm {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-  max-width: 300px;
-  width: 100%;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-}
-
-.formTitle {      
-  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
-.scoreForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items:center;
-  justify-content: center;
-}
-
-.input {
-  padding: 0.8rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
-  background: white;
-  width: 100%;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #2c3e50;
-  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.1);
-}
-
-
-
-.submitButton button {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #2c3e50, #1a252c);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.submitButton button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
-}
 
 .tableButtons {
   display: flex;
@@ -191,7 +112,7 @@ tr.third {
   letter-spacing: 1px;
    background: linear-gradient(135deg, #4CAF50, #388E3C);
   color: white;
-        font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
 
 }
 
@@ -221,21 +142,32 @@ tr.third {
   background: linear-gradient(135deg, #243545, #151d23);
 }
 
-#noScoresMessage h1 {
-  color: #2c3e50;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.noScoresMessage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }
 
-#noScoresMessage p button {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #4CAF50, #388E3C);
+.noScoresMessage h1 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.pageButton{
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background:none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
-  text-transform: uppercase;
+  cursor: pointer;
+}
+.pageButton:hover{
+  color: rgb(216, 213, 213);
 }
 
 
