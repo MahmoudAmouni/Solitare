@@ -6,15 +6,17 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 $input = json_decode(file_get_contents('php://input'), true);
 
-if (!isset($input['userName']) || !isset($input['score']) || !isset($input['duration'])) {
+if (!isset($input['userName'])) {
     http_response_code(400);
-    echo json_encode(['error' => 'Missing required fields: userName, score, duration']);
+    echo json_encode(['error' => 'Missing required fields: userName']);
     exit;
 }
 
 include ('connection.php');
 
 try {
+      $score = random_int(0, 9999); 
+    $duration = random_int(480, 1800);
     $sql = $mysql->prepare("INSERT INTO scores (userName, score, duration) VALUES (?, ?, ?)");
     
     if (!$sql) {
@@ -22,8 +24,7 @@ try {
     }
 
     $userName = $input['userName'];
-    $score = (int)$input['score'];
-    $duration = (int)$input['duration'];
+    
 
     $sql->bind_param('sii', $userName, $score, $duration);
 
