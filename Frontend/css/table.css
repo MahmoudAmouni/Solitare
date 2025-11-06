@@ -167,8 +167,33 @@ tr.third {
 @media (max-width: 620px) {
   .scoreTable {
     width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
+  .scoreTable tbody td {
+  padding: 0.9rem;
+}
+.scoreHeader .scoreRow td {
+  padding: 0.9rem;
+}
+.tableButtons button {
+  padding: 0.7rem 1rem;
+}
+.goBack{
+  padding: 0.7rem 1rem;
+}
+}
+
+@media (max-width: 460px) {
+  .scoreTable {
+    width: 30%;
+  }
+  .scoreTable tbody td {
+  padding: 0.6rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+.scoreHeader .scoreRow td {
+  padding: 0.6rem;
+  text-align: left;
+  font-size: 0.8rem;
+}
 }

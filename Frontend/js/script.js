@@ -2,27 +2,23 @@ import { readScores, createScore, deleteScore } from "./api.js";
 
 const PAGE_SIZE = 5;
 
+let pendingDeleteId = null;
 let currentPage = 0;
 let allScores = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const scoreform = document.querySelector(".scoreForm");
   const tbody = document.querySelector("tbody");
   const scoreTable = document.querySelector("#scoreTable");
   const tableButtons = document.querySelector("#tableButtons");
   const addScoreButtons = document.querySelectorAll(".addScore");
   const formContainer = document.getElementById("formContainer");
+  const scoreform = document.querySelector(".scoreForm");
+  const confirmDltButton = document.getElementById("confirmDelete");
+  const cancelDltButton = document.getElementById("cancelDelete");
+  const prevButton = document.getElementById("prevPage");
+  const nextButton = document.getElementById("nextPage");
 
-  
-  function showToast() {
-    const toast = document.getElementById("toast");
-    toast.classList.add("show");
-
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2500);
-  }
-
+  //Loading all the data
   async function loadScores() {
     const data = await readScores();
     data.sort((a, b) => {
@@ -42,9 +38,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (allScores.length === 0) {
       scoreTable.style.display = "none";
       tableButtons.style.display = "none";
+      prevButton.style.display = "none";
+      nextButton.style.display = "none";
       noScoresMessage.style.display = "block";
-      document.getElementById("prevPage").style.display = "none";
-      document.getElementById("nextPage").style.display = "none";
       return;
     }
 
@@ -77,25 +73,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     </tr>`;
       tbody.innerHTML += row;
     });
+
+    //handling click for trash buttons
     document.querySelectorAll(".trashButton").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const id = btn.dataset.id;
-        if (confirm("Delete this score?")) {
-          await deleteScore(id);
-          loadScores();
-        }
+        showDeleteConfirm(id);
       });
     });
 
-    const prevButton = document.getElementById("prevPage");
-    const nextButton = document.getElementById("nextPage");
-
     prevButton.style.display = currentPage === 0 ? "none" : "inline-block";
-    nextButton.style.display = endIndex >= allScores.length ? "none" : "inline-block";
+    nextButton.style.display =
+      endIndex >= allScores.length ? "none" : "inline-block";
   }
 
+  //showing the delete modal overly
+  function showDeleteConfirm(id) {
+    pendingDeleteId = id;
+    document.body.classList.add("no-scroll");
+    document.getElementById("deleteOverlay").classList.add("show");
+  }
+
+  //hiding the delete modal overly
+  function hideDeleteModal() {
+    document.getElementById("deleteOverlay").classList.remove("show");
+    document.body.classList.remove("no-scroll");
+    pendingDeleteId = null;
+  }
+
+  //Showing the toast 
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerHTML = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+  }
+
+  //Handling confirm or cancel delete score
+  confirmDltButton.addEventListener("click", async () => {
+    if (pendingDeleteId) {
+      await deleteScore(pendingDeleteId);
+      loadScores();
+      hideDeleteModal();
+      showToast("Score Deleted Successfully");
+    }
+  });
+  cancelDltButton.addEventListener("click", () => {
+    hideDeleteModal();
+  });
 
 
+  //showing the form to add score
   addScoreButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (formContainer.style.display === "flex") {
@@ -108,25 +139,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
 
-
-
+  //handle submiting a form
   scoreform.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const userName = e.target.userName.value.trim();
-
     if (!userName) return;
-
     const result = await createScore(userName);
-
     if (result) {
-      showToast()
+      showToast("New record loaded successfully🃏");
       loadScores();
       e.target.reset();
     }
     formContainer.style.display = "none";
   });
-
   document.body.addEventListener("click", function (event) {
     if (
       formContainer.style.display === "flex" &&
@@ -139,13 +164,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   });
+
+
+  //pagination for the table
   document.getElementById("prevPage").addEventListener("click", () => {
     if (currentPage > 0) {
       currentPage--;
       renderScoresPage();
     }
   });
-  
+
   document.getElementById("nextPage").addEventListener("click", () => {
     const maxPage = Math.ceil(allScores.length / PAGE_SIZE) - 1;
     if (currentPage < maxPage) {
@@ -153,6 +181,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderScoresPage();
     }
   });
-  //first load for all scores
+  //Initial load for all scores
   loadScores();
 });
