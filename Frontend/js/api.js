@@ -1,6 +1,9 @@
+
 export async function readScores() {
   try {
-    const response = await axios.get("/solitare/backend/api/read.php");
+    const response = await axios.get(
+      "http://localhost/solitare/backend/api/read.php"
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to fetch scores:", error);
@@ -10,11 +13,14 @@ export async function readScores() {
 
 export async function createScore(userName, score, duration) {
   try {
-    const response = await axios.post("/solitare/backend/api/create.php", {
-      userName,
-      score,
-      duration,
-    });
+    const response = await axios.post(
+      "http://localhost/solitare/backend/api/read.php",
+      {
+        userName,
+        score,
+        duration,
+      }
+    );
     return response.data;
   } catch (error) {
     console.error("Failed to add score:", error);
@@ -24,7 +30,9 @@ export async function createScore(userName, score, duration) {
 
 export async function deleteScore(id) {
   try {
-    await axios.delete(`/solitare/backend/api/delete.php?id=${id}`);
+    await axios.delete(
+      `http://localhost/solitare/backend/api/read.php?id=${id}`
+    );
     return true;
   } catch (error) {
     console.error("Failed to delete score:", error);

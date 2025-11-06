@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/hero.css" />
-    <link rel="stylesheet" href="css/table.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="stylesheet" href="css/button.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="Frontend/css/style.css" />
+    <link rel="stylesheet" href="Frontend/css/hero.css" />
+    <link rel="stylesheet" href="Frontend/css/table.css" />
+    <link rel="stylesheet" href="Frontend/css/form.css" />
+    <link rel="stylesheet" href="Frontend/css/button.css" />
+    <link rel="stylesheet" href="Frontend/css/footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="js/script.js"></script>
-    <link rel="icon" href="images/logo.jpg" type="image/ico">
+    <script src="Frontend/js/axios.min.js"></script>
+    <script type="module" src="Frontend/js/script.js"></script>
+    <link rel="icon" href="Frontend/images/logo.jpg" type="image/ico">
     <title>Solitare</title>
 </head>
 
@@ -21,21 +21,21 @@
     <div class="hero">
 
         <nav class="navbar">
-                <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="logo page" />
-                    <h2>Solitare </h2>
-                </a>
+            <a href="index.html" class="logo">
+                <img src="Frontend/images/logo.jpg" alt="logo page" />
+                <h2>Solitare </h2>
+            </a>
         </nav>
         <div class="tableMainContent" id="tableMainContent">
 
             <table id="scoreTable" class="scoreTable">
                 <thead class="scoreHeader">
                     <tr class="scoreRow">
-                        <td><button  id="prevPage" class="pageButton"> ◀ Prev</button></td>
+                        <td><button id="prevPage" class="pageButton"> ◀ Prev</button></td>
                         <td>userName</td>
                         <td>Score</td>
                         <td>Duration</td>
-                        <td ><button id="nextPage" class="pageButton">Next ▶</button></td>
+                        <td><button id="nextPage" class="pageButton">Next ▶</button></td>
                     </tr>
                 </thead>
                 <tbody id="tbody">
@@ -72,17 +72,17 @@
         </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footerlogo">
-                    <img src="images/logo.jpg" />
+    <footer class="footer">
+        <div class="footerContent">
+            <div class="footerGame">
+                <a href="index.html" class="footerlogo">
+                    <img src="Frontend/images/logo.jpg" />
                     <h3> Solitare</h3>
-                </div>
+                </a>
                 <p>Play. Relax. Win. Repeat.</p>
             </div>
-    
-            <div class="footer-links">
+
+            <div class="footerLinks">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#gamedownload">Start Playing</a></li>
@@ -90,10 +90,10 @@
                     <li><a href="LeaderBoard.html">Leaderboard</a></li>
                 </ul>
             </div>
-    
-            <div class="footer-social">
+
+            <div class="footerSocial">
                 <h4>Follow Us</h4>
-                <div class="social-icons">
+                <div class="socialIcons">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -101,8 +101,8 @@
                 </div>
             </div>
         </div>
-    
-        <div class="footer-bottom">
+
+        <div class="footerCredits">
             <p>&copy; 2025 Solitare. All rights reserved. Made with ❤️ for card lovers.</p>
         </div>
     </footer>

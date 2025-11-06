@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2025 at 10:47 AM
+-- Generation Time: Nov 06, 2025 at 09:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -39,11 +39,12 @@ CREATE TABLE `scores` (
 --
 
 INSERT INTO `scores` (`id`, `userName`, `score`, `duration`) VALUES
-(9, 'mahmoud', 5205, 231),
-(10, 'm', 3459, 9),
-(11, 'nn', 6293, 103),
-(12, 'hh', 6662, 62),
-(14, 'mahmoud', 7758, 70);
+(23, 'Al Jazzar', 8451, 1135),
+(24, 'Mahmoud', 8770, 1199),
+(27, 'Buman', 9013, 1412),
+(28, 'Best', 3206, 491),
+(29, 'Soldire', 9167, 1615),
+(31, 'lK4ZZ', 2617, 587);
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `scores`
 -- AUTO_INCREMENT for table `scores`
 --
 ALTER TABLE `scores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

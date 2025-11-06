@@ -1,0 +1,37 @@
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("../images/background.jpg");
+  z-index: -1;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(22, 22, 22, 0.559);
+  backdrop-filter: blur(10px);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.logo h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+}
+.logo img {
+  width: 2.3rem;
+  border-radius: 6px;
+}
