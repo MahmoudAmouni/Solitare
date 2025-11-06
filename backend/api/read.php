@@ -1,17 +1,29 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
+include ('connection.php');
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=Solitare_db", 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT id, userName, score, duration FROM scores ORDER BY id DESC";
+    $res = $mysql->query($sql);
 
-    $stmt = $pdo->query("SELECT id, userName, score, duration FROM scores ORDER BY id DESC");
-    $scores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($res === false) {
+        throw new Exception('Query failed: ' . $mysql->error);
+    }
+
+    $scores = [];
+    while ($row = $res->fetch_assoc()) {
+        $scores[] = $row;
+    }
 
     echo json_encode($scores);
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);
+} finally {
+    $mysql->close();
 }
 ?>

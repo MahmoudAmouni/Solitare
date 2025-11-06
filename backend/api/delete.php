@@ -11,21 +11,33 @@ if (!$id || !is_numeric($id)) {
     exit;
 }
 
+include ('connection.php');
+
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=Solitare_db", 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = $mysql->prepare("DELETE FROM scores WHERE id = ?");
+    if (!$sql) {
+        throw new Exception('Prepare failed: ' . $mysql->error);
+    }
 
-    $stmt = $pdo->prepare("DELETE FROM scores WHERE id = ?");
-    $stmt->execute([(int)$id]);
+    $idInt = (int)$id;
+    $sql->bind_param('i', $idInt);
 
-    if ($stmt->rowCount() > 0) {
+    if (!$sql->execute()) {
+        throw new Exception('Execute failed: ' . $sql->error);
+    }
+
+    if ($sql->affected_rows > 0) {
         echo json_encode(['success' => true, 'message' => 'Record deleted']);
     } else {
         http_response_code(404);
         echo json_encode(['error' => 'No record found with that ID']);
     }
+
+    $sql->close();
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+} finally {
+    $mysql->close();
 }
 ?>
