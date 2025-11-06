@@ -98,12 +98,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.preventDefault();
 
     const userName = e.target.userName.value.trim();
-    const score = Math.floor(Math.random() * 10000);
-    const duration = Math.floor(Math.random() * (1800 - 480 + 1)) + 480; //generated duration in seconds and then transfrom it into minutes in the table
 
     if (!userName) return;
 
-    const result = await createScore(userName, score, duration);
+    const result = await createScore(userName);
 
     if (result) {
       alert("Score saved!");

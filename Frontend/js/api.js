@@ -11,14 +11,12 @@ export async function readScores() {
   }
 }
 
-export async function createScore(userName, score, duration) {
+export async function createScore(userName) {
   try {
     const response = await axios.post(
-      "http://localhost/solitare/backend/api/read.php",
+      "http://localhost/solitare/backend/api/create.php",
       {
-        userName,
-        score,
-        duration,
+        userName
       }
     );
     return response.data;
@@ -31,7 +29,7 @@ export async function createScore(userName, score, duration) {
 export async function deleteScore(id) {
   try {
     await axios.delete(
-      `http://localhost/solitare/backend/api/read.php?id=${id}`
+      `http://localhost/solitare/backend/api/delete.php?id=${id}`
     );
     return true;
   } catch (error) {
