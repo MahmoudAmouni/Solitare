@@ -13,6 +13,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const addScoreButtons = document.querySelectorAll(".addScore");
   const formContainer = document.getElementById("formContainer");
 
+  
+  function showToast() {
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2500);
+  }
+
   async function loadScores() {
     const data = await readScores();
     data.sort((a, b) => {
@@ -83,6 +93,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     prevButton.style.display = currentPage === 0 ? "none" : "inline-block";
     nextButton.style.display = endIndex >= allScores.length ? "none" : "inline-block";
   }
+
+
+
   addScoreButtons.forEach((button) => {
     button.addEventListener("click", () => {
       if (formContainer.style.display === "flex") {
@@ -94,6 +107,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+
+
+
   scoreform.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -104,14 +120,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const result = await createScore(userName);
 
     if (result) {
-      alert("Score saved!");
+      showToast()
       loadScores();
       e.target.reset();
     }
     formContainer.style.display = "none";
   });
 
-  loadScores();
   document.body.addEventListener("click", function (event) {
     if (
       formContainer.style.display === "flex" &&
@@ -130,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderScoresPage();
     }
   });
-
+  
   document.getElementById("nextPage").addEventListener("click", () => {
     const maxPage = Math.ceil(allScores.length / PAGE_SIZE) - 1;
     if (currentPage < maxPage) {
@@ -138,4 +153,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderScoresPage();
     }
   });
+  //first load for all scores
+  loadScores();
 });
